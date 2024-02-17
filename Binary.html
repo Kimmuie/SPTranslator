@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="SPTranslator.css"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Rubik&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Binary Translator</title>
+    <link rel="icon" href="./image/Icon2.png">
+</head>
+<body>
+  <header>
+    <a href="./index.html">
+      <img src="./image/Icon1.png" class="logo">
+    </a>
+    <a href="./index.html">
+        <span class="logotext">Morse&nbsp;Translator</span>
+    </a>
+      <div>
+        <div class="dropdown">
+          <span id="headertextleft" class="headertext">Support&nbsp;Us</span>
+          <div class="dropdown-content">
+            <a href="#" class="DDPromptpay">
+              <img src="./image/1Promptpay.png" class="dropdownimg">Prompt&nbsp;Pay</a>
+            <a href="#" class="DDTruemoney"><!--https://tmn.app.link/i2oMlve54Gb-->
+              <img src="./image/1TrueMoney.png" class="dropdownimg">Truemoney</a>
+            <a href="https://paypal.me/pranchayut172" target="_blank">
+              <img src="./image/1Paypal.png" class="dropdownimg">Paypal</a>
+          </div>
+          <img src="#" class="QRcode noqrcode">
+        </div>
+      <div class="dropdown">
+      <span id="headertextmiddle" class="headertext">Contact&nbsp;Us</span>
+        <div class="dropdown-content">
+          <a href="https://instagram.com/kimmuie_?utm_source=qr&igshid=ZDc4ODBmNjlmNQ%3D%3D" target="_blank">
+            <img src="./image/1Instagram.png" class="dropdownimg">Instagram</a>
+          <a href="https://github.com/Kimmuie" target="_blank">
+            <img src="./image/1Github.png" class="dropdownimg">Github</a>
+          <a href="https://discord.gg/PgKVSbmnyT" target="_blank">
+            <img src="./image/1Discord.png" class="dropdownimg">Discord</a>
+        </div>
+      </div>
+      <!--<span id="headertextright" class="headertext" >Other&nbsp;Project</span>-->
+      </div>
+      <a href="https://github.com/Kimmuie/SPTranslator" target="_blank">
+        <button class="viewSource glow-on-hover" target="_blank"><img class="viewSourceimg" src="./image/1Github2.png">View Source</button>
+      </a>
+  </header>
+  <div id="main">
+    <aside class="box" id="leftaside">
+      <span class="inputheader">Text</span>
+      <textarea class="input" id="textinput" rows="25" placeholder="Text input ..."></textarea>
+        <div class="buttons">
+          <button class="copydeletebutton" id="copybuttontext">❐ Copy</button>
+          <button class="copydeletebutton DBT" id="deletebuttontext">✗ Delete</button>
+        </div>
+    </aside>
+    <div class="swapcontainer">
+      <button id="swap" class="swapbutton"><span class="swaptext">Swap<br></span>⇄</button>
+    </div>
+    <div class="middlecontainer">
+      <div id="notification"></div> 
+    </div>
+    <aside class="box" id="rightaside">
+      <span class="inputheader">Binary</span>
+      <textarea class="input" id="spinput" rows="25" placeholder="Binary output ..." readonly></textarea>
+      <div class="buttons">
+        <button class="copydeletebutton" id="copybuttonsp">❐ Copy </button>
+        <button class="copydeletebutton DBB" id="deletebuttonsp">✗ Delete</button>
+      </div>
+    </aside>
+  </div>
+  <footer>Other&nbsp;Project
+  
+    <marquee behavior="scroll" direction="left" class="marquee">
+      <a href="https://kimmuie.github.io/spyfall/" target="_blank">
+        <button class="otherProject glow-on-hover"><img src="./image/1Spyfall.png">RedKoalaSpyfall</button>
+      </a>
+      <a href="./Morse.html" target="_blank">
+      <button class="otherProject glow-on-hover"><img src="./image/Icon2.png">Text&nbsp;>&nbsp;Morse</button>
+      </a>
+      <a href="./Braille.html" target="_blank">
+      <button class="otherProject glow-on-hover"><img src="./image/Icon2.png">Text&nbsp;>&nbsp;Braille</button>
+      </a>
+    </marquee>
+  </footer>
+  
+  <script src="Binary.js"></script>
+  <script src="Roots.js"></script>
+</body>
+</html>
