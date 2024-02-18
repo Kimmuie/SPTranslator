@@ -182,3 +182,45 @@ document.getElementsByClassName("DDTruemoney")[0].addEventListener("click", func
   window.addEventListener("resize", function () {
   updateLayout();
   });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var radioInputs = document.querySelectorAll('input[type="radio"][name="testimonial"]');
+    
+    var checkedIndex = Array.from(radioInputs).findIndex(input => input.checked);
+    
+    document.addEventListener('wheel', function(event) {
+        var direction = event.deltaY > 0 ? 1 : -1;
+        
+        checkedIndex = (checkedIndex + direction + radioInputs.length) % radioInputs.length;
+        radioInputs[checkedIndex].checked = true;
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  var radioInputs = document.querySelectorAll('input[type="radio"][name="testimonial"]');
+  var checkedIndex = Array.from(radioInputs).findIndex(input => input.checked);
+  
+  var touchstartY = 0;
+  var touchendY = 0;
+  
+  document.addEventListener('touchstart', function(event) {
+      touchstartY = event.changedTouches[0].screenY;
+  });
+  
+  document.addEventListener('touchend', function(event) {
+      touchendY = event.changedTouches[0].screenY;
+      handleGesture();
+  });
+  
+  function handleGesture() {
+      if (touchendY < touchstartY) {
+          checkedIndex = (checkedIndex + 1 + radioInputs.length) % radioInputs.length;
+      }
+      
+      if (touchendY > touchstartY) {
+          checkedIndex = (checkedIndex - 1 + radioInputs.length) % radioInputs.length;
+      }
+      
+      radioInputs[checkedIndex].checked = true;
+  }
+});
