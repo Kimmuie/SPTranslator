@@ -6,5 +6,3 @@ This project was created because I have a lot of free time and I was thinking of
 .  
 .  
 Sure, if you guys wants to try this translator, you can use the following link:  [SPTranslator](https://kimmuie.github.io/SPTranslator/)
-
-[ig: kimmuie_](https://instagram.com/kimmuie_)  
