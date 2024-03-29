@@ -1,4 +1,4 @@
-**SPTranslator** short for Specialized Translator, is my second project. It is a tool that can convert Braille, Morse code, and binary into normal text.  
+**SPTranslator** short for Specialized Translator, it is a tool that can convert Braille, Morse code, and binary into normal text.  
 .  
 .  
 **Objective**
