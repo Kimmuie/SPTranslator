@@ -185,8 +185,13 @@ function morseToText(morse) {
   }
 })
 
-var dotSound = new Audio("audioShort.mp3");
-var dashSound = new Audio("audioLong.mp3");
+if (window.matchMedia("(max-height: 1400px)").matches) {
+  var dotSound = new Audio("audioShort2.mp3");
+  var dashSound = new Audio("audioLong2.mp3");
+}else{
+  var dotSound = new Audio("audioShort.mp3");
+  var dashSound = new Audio("audioLong.mp3");
+}
 
 var currentTimeouts = [];
 
@@ -211,7 +216,7 @@ function playMorseCode(morse) {
   currentTimeouts = [];
     
   if (window.matchMedia("(max-height: 1400px)").matches) {
-    var unitTime = 500;
+    var unitTime = 400;
   }else{
     var unitTime = 200;
   }
