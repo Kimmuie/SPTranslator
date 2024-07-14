@@ -210,7 +210,7 @@ function playMorseCode(morse) {
   currentTimeouts.forEach(clearTimeout);
   currentTimeouts = [];
 
-  var unitTime = 200;
+  var unitTime = 250;
   var currentTime = 0;
 
   function playSound(audio, delay) {
