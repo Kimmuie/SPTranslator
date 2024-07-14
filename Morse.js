@@ -184,3 +184,55 @@ function morseToText(morse) {
       copyanddelete()      
   }
 })
+
+var dotSound = new Audio("audioShort.mp3");
+var dashSound = new Audio("audioLong.mp3");
+
+var currentTimeouts = [];
+
+document.getElementById("deletebuttonsp").addEventListener("click", function () {
+  var morse = document.getElementById('spinput').value;
+    playMorseCode(morse);
+});
+
+document.getElementById('spinput').addEventListener('input', function () {
+  var morse = this.value;
+  var text = morseToText(morse);
+  document.getElementById('textoutput').value = text;
+});
+
+function playMorseCode(morse) {
+  dotSound.pause();
+  dashSound.pause();
+  dotSound.currentTime = 0;
+  dashSound.currentTime = 0;
+
+  currentTimeouts.forEach(clearTimeout);
+  currentTimeouts = [];
+
+  var unitTime = 200;
+  var currentTime = 0;
+
+  function playSound(audio, delay) {
+    var timeout = setTimeout(function () {
+      audio.play();
+    }, delay);
+    currentTimeouts.push(timeout);
+  }
+  
+  for (var i = 0; i < morse.length; i++) {
+    var symbol = morse[i];
+    if (symbol === '.' || symbol === '•') {
+      playSound(dotSound, currentTime);
+      currentTime += unitTime;
+    } else if (symbol === '-' || symbol === '_') {
+      playSound(dashSound, currentTime);
+      currentTime += unitTime;
+    } else if (symbol === ' ') {
+      currentTime += unitTime + 5; 
+    } else if (symbol === '/') {
+      currentTime += unitTime + 15;
+    }
+    currentTime += unitTime;
+  }
+}
