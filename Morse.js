@@ -211,7 +211,7 @@ function playMorseCode(morse) {
   currentTimeouts = [];
     
   if (window.matchMedia("(max-height: 1400px)").matches) {
-    var unitTime = 400;
+    var unitTime = 500;
   }else{
     var unitTime = 200;
   }
