@@ -209,8 +209,12 @@ function playMorseCode(morse) {
 
   currentTimeouts.forEach(clearTimeout);
   currentTimeouts = [];
-
-  var unitTime = 250;
+    
+  if (window.matchMedia("(max-height: 1400px)").matches) {
+    var unitTime = 300;
+  }else{
+    var unitTime = 200;
+  }
   var currentTime = 0;
 
   function playSound(audio, delay) {
