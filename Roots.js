@@ -22,7 +22,6 @@ function setInnerHTML(selector, innerHTML) {
   }
 }
 
-
 function setImage(selector, src) {
   var elements = document.getElementsByClassName(selector);
   for (var i = 0; i < elements.length; i++) {
@@ -62,6 +61,7 @@ document.getElementById("deletebuttontext").addEventListener("click", function (
     showNotification("There no text to delete✗");
   }else{
     document.getElementById("textinput").value = "";
+    document.getElementById("spinput").value = "";
     showNotification("Text cleared✗");
   }
 });
@@ -89,17 +89,23 @@ document.getElementById("copybuttonsp").addEventListener("click", function () {
     document.getElementById("copybuttonsp").innerHTML = `❐ Copy`;
   },1200);
   });  
-  
+
   document.getElementById("deletebuttonsp").addEventListener("click", function () {
-  if(document.getElementById("spinput").value === ""){
-    showNotification("There no " + sp + " to delete✗");
+  if(SP === "Morse"){
+    showNotification("Making a sound🗣");
   }else{
+    document.getElementById("textinput").value = "";
     document.getElementById("spinput").value = "";
     showNotification(SP + " cleared✗");
   }
   });
+  
   }
 
+  // document.getElementById("voicebuttonsp").addEventListener("click", function () {
+  //   showNotification("Making a sound🗣");
+  // });
+  
 function showNotification(message) {
   var notification = document.getElementById("notification");
   notification.innerHTML = message;
@@ -114,10 +120,10 @@ function swapfirst(){
     console.log(SP + " To Text")
   document.getElementById("leftaside").innerHTML = `
   <span class="inputheader">` + SP + `</span>
-  <textarea class="input" id="spinput" rows="25" placeholder="` + SP + `input ..."></textarea>
+  <textarea class="input" id="spinput" rows="25" placeholder="` + SP + ` input ..."></textarea>
   <div class="buttons">
     <button class="copydeletebutton" id="copybuttonsp">❐ Copy </button>
-    <button class="copydeletebutton DBB" id="deletebuttonsp">✗ Delete All</button>
+    <button class="copydeletebutton DBB" id="deletebuttontext">✗ Delete</button>
   </div>`
 
   
@@ -126,7 +132,7 @@ function swapfirst(){
   <textarea class="input" id="textinput" rows="25" placeholder="Text output ..." readonly></textarea>
     <div class="buttons">
       <button class="copydeletebutton" id="copybuttontext">❐ Copy</button>
-      <button class="copydeletebutton DBT" id="deletebuttontext">✗ Delete All</button>
+      <button class="copydeletebutton DBT" id="deletebuttontext">✗ Delete</button>
     </div>`
     setStyles("DBB", {visibility:"visible"});
     setStyles("DBT", {visibility:"hidden"});
@@ -139,17 +145,21 @@ function swaplast(){
     <textarea class="input" id="textinput" rows="25" placeholder="Text input ..."></textarea>
       <div class="buttons">
         <button class="copydeletebutton" id="copybuttontext">❐ Copy</button>
-        <button class="copydeletebutton DBT" id="deletebuttontext">✗ Delete All</button>
+        <button class="copydeletebutton DBT" id="deletebuttontext">✗ Delete</button>
       </div>`
   
     document.getElementById("rightaside").innerHTML = `
     <span class="inputheader">` + SP + `</span>
     <textarea class="input" id="spinput" rows="25" placeholder="` + SP + ` output ..." readonly></textarea>
-    <div class="buttons">
+    <div class="buttonsp">
       <button class="copydeletebutton" id="copybuttonsp">❐ Copy </button>
-      <button class="copydeletebutton DBB" id="deletebuttonsp">✗ Delete All</button>
+      <button class="copydeletebutton DBB" id="deletebuttonsp">🗣 Voice</button>
     </div>`
+    if(SP === "Morse"){
+      setStyles("DBB", {visibility:"visible"});
+    }else{
       setStyles("DBB", {visibility:"hidden"});
+    }
       setStyles("DBT", {visibility:"visible"});
 }
 
@@ -184,6 +194,9 @@ function updateLayout() {
       document.getElementsByClassName("viewSource")[0].innerHTML = "<img class=viewSourceimg src=./image/1Github2.png>";
       setProperty("viewSourceimg", {"--marginR": "0dvh"});
       setProperty("logo", {"--marginL": "1dvh","--marginR": ".5dvh"});
+      if(window.matchMedia("(max-width: 1000px) and (orientation: portrait)").matches){
+        setProperty("copydeletebutton", {"--fontS": "1.7dvh"});
+      }
       if(window.matchMedia("(max-width: 1000px) and (orientation: landscape)").matches){
         document.getElementsByClassName("logotext")[0].innerHTML = SP + "&nbsp;Translator";
         document.getElementsByClassName("viewSource")[0].innerHTML = "<img class=viewSourceimg src=./image/1Github2.png>View Source";
@@ -195,6 +208,7 @@ function updateLayout() {
       document.getElementsByClassName("viewSource")[0].innerHTML = "<img class=viewSourceimg src=./image/1Github2.png>View Source";
       setProperty("viewSourceimg", {"--marginR": "3.5dvh"});
       setProperty("logo", {"--marginL": "1dvh","--marginR": "1dvh"});
+      setProperty("copydeletebutton", {"--fontS": "2.2dvh"});
     }
   }
   updateLayout();
